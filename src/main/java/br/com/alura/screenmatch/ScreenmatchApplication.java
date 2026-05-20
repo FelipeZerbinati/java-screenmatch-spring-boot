@@ -4,7 +4,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import br.com.alura.screenmatch.model.DadosSerie;
 import br.com.alura.screenmatch.service.ConsumoApi;
+import br.com.alura.screenmatch.service.ConverterDados;
 
 @SpringBootApplication
 public class ScreenmatchApplication implements CommandLineRunner {
@@ -20,6 +22,8 @@ public class ScreenmatchApplication implements CommandLineRunner {
 		// System.out.println(json);
 		// json = consumoApi.obterDados("https://viacep.com.br/ws/13024200/json/");
 		System.out.println(json);
+		ConverterDados conversor = new ConverterDados();
+		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
+		System.out.println(dados);
 	}
-
 }
